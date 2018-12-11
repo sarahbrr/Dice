@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Dice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/DiceAnimation.css" rel="stylesheet" />
+<link href="~/Content/css/style.css" rel="stylesheet" />
+@*rollIn*@
+<div class="container">
+    <div class="dice_roller">
+        <br />
+        <h2>Dice Roller</h2>
+
+        <input onclick="rollDie6();" class="btn btn-success" type="button" value="Roll D6" /><br />
+        <div class="animated rollIn delay-5s">
+            <div id="myImage1">
+                <img src="../Content/images/die_.jpg" class="animated infinite bounce" name="canvas" width="100" height="100" />
+            </div>
+
+            <div id="myImage2" class="hidden">
+                <a href="javascript:rollDie6x2('myImage2');">
+                    <img src="../Content/images/die_.jpg" class="animated infinite bounce" name="blank" width="100" height="100" />
+                </a>
+            </div>
+        </div>
+        <input onclick="rollDie6x2()" class="btn btn-success" type="button" value="Roll 2 D6"/><br />
+       <br />
+
+
+        <input onclick="rollDie8();" class="btn btn-success" type="button" value="Roll D8" /><br />
+        <input onclick="rollDie8x2();" class="btn btn-success" type="button" value="Roll 2 D8" /><br /><br />
+
+        <input onclick="rollDie10();" class="btn btn-success" type="button" value="Roll D10" />
+        <br />
+        <input onclick="rollDie10x2();" class="btn btn-success" type="button" value="Roll 2 D10" /><br />
+        <br />
+
+
+        <input onclick="rollDie12();" class="btn btn-success" type="button" value="Roll 12 Sided Die" /><br />
+        <input onclick="rollDie20();" class="btn btn-success" type="button" value="Roll 20 Sided Die" /><br />
+
+        <script>
+            var photoArray = ["../Content/images/1.png", "../Content/images/2.png", "../Content/images/3.png", "../Content/images/4.png", "../Content/images/5.png", "../Content/images/6.png", "../Content/images/1.png"];
+
+            function rollDie6() {
+                var item = document.getElementById('myImage2');
+                item.className = 'hidden';
+              
+                var x = Math.floor((Math.random() * 6) + 1);
+                document.canvas.src = photoArray[x];
+            }
+
+            function rollDie6x2() {
+                var item = document.getElementById('myImage2');
+                if (item) {
+                    item.className = (item.className == 'hidden')
+                    item.className == 'unhidden';
+                }
+                var x = Math.floor((Math.random() * 6) + 1);
+                var y = Math.floor((Math.random() * 6) + 1);
+                
+                document.canvas.src = photoArray[x];
+                document.blank.src = photoArray[y];
+            }
+            </script>
+        <script>
+            var imageArray = ["../Content/images/28.png", "../Content/images/48.png", "../Content/images/68.png", "../Content/images/88.png", "../Content/images/7.png", "../Content/images/28.png", "../Content/images/purple.png", "../Content/images/purple1.png", "../Content/images/purple2.png"];
+
+
+            function rollDie8() {
+                var item = document.getElementById('myImage2');
+                item.className = 'hidden';
+                var x = Math.floor((Math.random() * 8) + 1);
+                document.canvas.src = imageArray[x];
+            }
+            function rollDie8x2() {
+                var item = document.getElementById('myImage2');
+                if (item) {
+                    item.className = (item.className == 'hidden')
+                    item.className == 'unhidden';
+                }
+                var x = Math.floor((Math.random() * 8) + 1);
+                var y = Math.floor((Math.random() * 8) + 1);
+
+                document.canvas.src = imageArray[x];
+                document.blank.src = imageArray[y];
+            }
+
+            function rollDie10() {
+                var item = document.getElementById('myImage2');
+                item.className = 'hidden';
+                var x = Math.floor((Math.random() * 10) + 1);
+                document.canvas.src = photoArray[x];
+            }
+            function rollDie10x2() {
+                var item = document.getElementById('myImage2');
+                if (item) {
+                    item.className = (item.className == 'hidden')
+                    item.className == 'unhidden';
+                }
+                var x = Math.floor((Math.random() * 10) + 1);
+                var y = Math.floor((Math.random() * 10) + 1);
+
+                document.canvas.src = photoArray[x];
+                document.blank.src = photoArray[y];
+            }
+
+
+
+
+            function rollDie12() {
+                var x = Math.floor((Math.random() * 12) + 1);
+                document.canvas.src = photoArray[x];
+            }
+            function rollDie20() {
+                var x = Math.floor((Math.random() * 20) + 1);
+                document.canvas.src = photoArray[x];
+            }
+
+        </script>
+    </div>
+</div>
